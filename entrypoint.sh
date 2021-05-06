@@ -55,7 +55,7 @@ git rebase $BASE_BRANCH
 git reset --soft $(git rev-parse $BASE_BRANCH) 
 
 git add .
-git commit -S -m "${COMMIT_NAME}"
+git commit -S -m -v "${COMMIT_NAME}"
 
 git push -f
 
