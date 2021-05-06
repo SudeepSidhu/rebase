@@ -51,11 +51,11 @@ set -o xtrace
 git checkout $BASE_BRANCH && git pull
 git checkout $HEAD_BRANCH && git pull
 
-git rebase -v $BASE_BRANCH
+GIT_TRACE=1 git rebase $BASE_BRANCH
 git reset --soft $(git rev-parse $BASE_BRANCH) 
 
 git add .
-git commit -S -m -v "${COMMIT_NAME}"
+GIT_TRACE=1 git commit -S -m "${COMMIT_NAME}"
 
 git push -f
 
