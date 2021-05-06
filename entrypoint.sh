@@ -24,7 +24,7 @@ AUTH_HEADER="Authorization: token $GITHUB_TOKEN"
 pr_resp=$(curl -X GET -s -H "${AUTH_HEADER}" -H "${API_HEADER}" \
           "${URI}/repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER")
 
-echo "API response: $pr_resp"
+# echo "API response: $pr_resp"
 
 BASE_REPO=$(echo "$pr_resp" | jq -r .base.repo.full_name)
 BASE_BRANCH=$(echo "$pr_resp" | jq -r .base.ref)
