@@ -50,7 +50,7 @@ set -o xtrace
 git checkout $BASE_BRANCH && git pull
 git checkout $HEAD_BRANCH && git pull
 
-git rebase $HEAD_BRANCH
+git rebase $BASE_BRANCH
 git reset --soft $(git rev-parse $BASE_BRANCH) 
 
 git add .
