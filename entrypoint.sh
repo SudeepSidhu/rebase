@@ -42,6 +42,7 @@ fi
 
 HEAD_REPO=$(echo "$pr_resp" | jq -r .head.repo.full_name)
 HEAD_BRANCH=$(echo "$pr_resp" | jq -r .head.ref)
+COMMIT_NAME=$(echo "$pr_resp" | jq -r .title)
 
 echo "Base branch for PR #$PR_NUMBER is $BASE_BRANCH"
 
@@ -54,7 +55,7 @@ git rebase $BASE_BRANCH
 git reset --soft $(git rev-parse $BASE_BRANCH) 
 
 git add .
-git commit -S -m "Squashed commit"
+git commit -S -m "${COMMIT_NAME}"
 
 git push -f
 
